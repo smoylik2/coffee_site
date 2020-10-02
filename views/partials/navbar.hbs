@@ -1,0 +1,44 @@
+<!-- main navbar on top of the site -->
+<div class="navbar-fixed">
+    <nav class="blue-grey darken-4">
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="/" class="brand-logo">
+                    <img src="/logo.jpg" alt="Coffee" height="64px" width="192px">
+                </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <!--logic active view for link-->
+                    {{#if isMainPage}}
+                        <li class="active"><a href="/">Main page</a></li>
+                    {{else}}
+                        <li><a href="/">Main page</a></li>
+                    {{/if}}
+
+                    {{#if isWritePage}}
+                        <li class="active"><a href="/write">Add comment</a></li>
+                    {{else}}
+                        <li><a href="/write">Add comment</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</div>
+<!-- Side bar for mobile device -->
+<ul class="sidenav blue-grey darken-4" id="mobile-demo">
+    {{#if isFirstPage}}
+        <li class="active"><a href="/" class="white-text">Main page</a></li>
+    {{else}}
+        <li><a href="/" class="white-text">Main page</a></li>
+    {{/if}}
+
+    {{#if isSecondPage}}
+        <li class="active"><a href="/write" class="white-text">Add comment</a></li>
+    {{else}}
+        <li><a href="/write" class="white-text">Add comment</a></li>
+    {{/if}}
+</ul>

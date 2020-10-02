@@ -1,0 +1,50 @@
+<!-- block with comments on main pages -->
+{{#if list.length}}
+    <ul class="collection">
+        <!-- choose every element from array with comments or return sign -->
+        {{#each list}}
+
+            <li class="collection-item avatar">
+                <div class="circle"><i class="material-icons small">insert_emoticon</i></div>
+
+                <span class="title">{{userName}}</span>
+                <p>{{comment}}</p>
+                <form class="right-align" action="/like" method="post">
+                    <input type="hidden" value={{_id}} name="id">
+                    <!-- if like sign never clicked return clear buttons -->
+                    {{#unless estimated}}
+                        <button class="waves-effect waves-light btn-flat" type="submit" value="like" name="status">
+                            <i type="input" class="material-icons">thumb_up</i>
+                        </button>
+                        <button class="waves-effect waves-light btn-flat" type="submit" value="unlike" name="status">
+                            <i type="input" class="material-icons">thumb_down</i>
+                        </button>
+                    <!-- else like sign clicked return active like or dislike button  -->
+                    {{else}}
+                        <!-- choose active case for like or dislike buttons -->
+                        {{#if liked}}
+                            <button class="waves-effect waves-light btn-flat" type="submit" value="like" name="status">
+                                <i type="input" class="material-icons blue-text">thumb_up</i>
+                            </button>
+                            <button class="waves-effect waves-light btn-flat" type="submit" value="unlike" name="status">
+                                <i type="input" class="material-icons">thumb_down</i>
+                            </button>
+                        {{else}}
+                            <button class="waves-effect waves-light btn-flat" type="submit" value="like" name="status">
+                                <i type="input" class="material-icons">thumb_up</i>
+                            </button>
+                            <button class="waves-effect waves-light btn-flat" type="submit" value="unlike" name="status">
+                                <i type="input" class="material-icons blue-text">thumb_down</i>
+                            </button>
+                        {{/if}}
+
+                    {{/unless}}
+
+                </form>
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <!-- if array with comments is empty -->
+    <p class="white-text"> List is empty !</p>
+{{/if}}

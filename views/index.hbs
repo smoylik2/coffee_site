@@ -1,0 +1,18 @@
+<!-- body block for main pages -->
+<div class="container">
+    <!-- create slider block -->
+    <div class="carousel">
+        {{#each arrSliderHref }}
+            <a class="carousel-item" href="#{{@index}}">
+                <div class="slide" style="background-image: url('{{this}}')"></div>
+            </a>
+        {{/each}}
+    </div>
+    <!-- add static cards with information -->
+    {{> cards}}
+
+    <h2 class="white-text row">Comments about us:</h2>
+    <!-- add comment block -->
+    {{> comment}}
+
+</div>
