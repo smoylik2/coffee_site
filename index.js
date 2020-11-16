@@ -13,8 +13,8 @@ const routes = require('./routes/route');
 
 // access data
 const PORT = process.env.PORT || 3000;
-const password = 'fgn889gn';
-const dbname = 'Coffee_site';
+const password = ENV['COFFEE_DB_PASS'];
+const dbname = ENV['COFFEE_DB_NAME'];
 const uri = `mongodb+srv://smoylik:${password}@cluster0.qyybq.mongodb.net/${dbname}`;
 
 // init express js
